@@ -20,6 +20,9 @@
     <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -52,65 +55,84 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\KSPAssemblies\Managed\1.0.3\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\KSPAssemblies\Managed\1.0.3\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="CLSInterfaces">
-      <HintPath>..\..\..\..\..\..\ksp-win-1-0-2\KSP_win\GameData\ShipManifest\Plugins\CLSInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="DFInterface, Version=0.1.5651.35439, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Assembly-CSharp-firstpass, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Distribution\GameData\ShipManifest\Plugins\DFInterface.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\KSP_x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="CLSInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Distribution\GameData\ShipManifest\Plugins\CLSInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="KSPUtil, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\KSP_x64_Data\Managed\KSPUtil.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\KSPAssemblies\Managed\1.0.3\UnityEngine.dll</HintPath>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\SteamLibrary\SteamApps\common\Kerbal Space Program\KSP_x64_Data\Managed\UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModDockedVessel.cs" />
-    <Compile Include="SMToolTips.cs" />
-    <Compile Include="TransferCrew.cs" />
-    <Compile Include="InstalledMods.cs" />
-    <Compile Include="ModAntenna.cs" />
-    <Compile Include="CLSClient.cs" />
-    <Compile Include="ModLight.cs" />
-    <Compile Include="ModSolarPanel.cs" />
-    <Compile Include="TransferResource.cs" />
-    <Compile Include="SMHighlighter.cs" />
-    <Compile Include="TabAntenna.cs" />
-    <Compile Include="UtilsGui.cs" />
-    <Compile Include="WindowControl.cs" />
-    <Compile Include="WindowDebugger.cs" />
-    <Compile Include="ModHatch.cs" />
-    <Compile Include="TabHatch.cs" />
+    <Compile Include="APIClients\DFWrapper.cs" />
+    <Compile Include="Distribution\SMWrapper.cs" />
+    <Compile Include="InternalObjects\SMSounds.cs" />
+    <Compile Include="Modules\ModDockedVessel.cs" />
+    <Compile Include="Process\ProcessController.cs" />
+    <Compile Include="InternalObjects\SMConditions.cs" />
+    <Compile Include="SMPart.cs" />
+    <Compile Include="InternalObjects\SMToolTips.cs" />
+    <Compile Include="Process\TransferCrew.cs" />
+    <Compile Include="APIClients\InstalledMods.cs" />
+    <Compile Include="Modules\ModAntenna.cs" />
+    <Compile Include="APIClients\CLSClient.cs" />
+    <Compile Include="Modules\ModLight.cs" />
+    <Compile Include="Modules\ModSolarPanel.cs" />
+    <Compile Include="Process\TransferPump.cs" />
+    <Compile Include="InternalObjects\SMHighlighter.cs" />
+    <Compile Include="APIClients\ToolbarWrapper.cs" />
+    <Compile Include="Windows\Tabs\TabAntenna.cs" />
+    <Compile Include="Windows\Tabs\TabConfig.cs" />
+    <Compile Include="Windows\Tabs\TabHighlight.cs" />
+    <Compile Include="Windows\Tabs\TabInstalledMods.cs" />
+    <Compile Include="Windows\Tabs\TabRealism.cs" />
+    <Compile Include="Windows\Tabs\TabScienceLabs.cs" />
+    <Compile Include="Windows\Tabs\TabSounds.cs" />
+    <Compile Include="Windows\Tabs\TabToolTips.cs" />
+    <Compile Include="Windows\UtilsGui.cs" />
+    <Compile Include="Windows\WindowControl.cs" />
+    <Compile Include="Windows\WindowDebugger.cs" />
+    <Compile Include="Modules\ModHatch.cs" />
+    <Compile Include="Windows\Tabs\TabHatch.cs" />
     <Compile Include="SMStyle.cs" />
-    <Compile Include="ModKerbal.cs" />
-    <Compile Include="TabLight.cs" />
-    <Compile Include="WindowRoster.cs" />
+    <Compile Include="Modules\ModKerbal.cs" />
+    <Compile Include="Windows\Tabs\TabLight.cs" />
+    <Compile Include="Windows\WindowRoster.cs" />
     <Compile Include="SMSettings.cs" />
-    <Compile Include="WindowSettings.cs" />
+    <Compile Include="Windows\WindowSettings.cs" />
     <Compile Include="SMAddon.cs" />
-    <Compile Include="WindowManifest.cs" />
-    <Compile Include="ToolbarWrapper.cs" />
-    <Compile Include="TabSolarPanel.cs" />
-    <Compile Include="WindowTransfer.cs" />
-    <Compile Include="SMController.cs" />
+    <Compile Include="Windows\WindowManifest.cs" />
+    <Compile Include="Windows\Tabs\TabSolarPanel.cs" />
+    <Compile Include="Windows\WindowTransfer.cs" />
+    <Compile Include="SMVessel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WeakReference.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Distribution\ChangeLog.txt" />
-    <Content Include="Distribution\GameData\ShipManifest\Plugins\DFInterface.dll" />
+    <Content Include="Distribution\Developer Notes.txt" />
     <Content Include="Distribution\Installation Notes.txt" />
     <Content Include="Distribution\GameData\ShipManifest\Plugins\CLSInterfaces.dll" />
     <Content Include="Distribution\GameData\ShipManifest\Plugins\ShipManifest.dll" />
-    <Content Include="Distribution\GameData\ShipManifest\Plugins\SMInterface.dll" />
     <Content Include="Distribution\GameData\ShipManifest\Sounds\Sounds.txt" />
     <Content Include="Distribution\GameData\ShipManifest\Textures\IconOff_24.png" />
     <Content Include="Distribution\GameData\ShipManifest\Textures\IconOff_38.png" />
@@ -124,12 +146,13 @@
     <Content Include="Distribution\GameData\ShipManifest\Textures\IconS_Off_38.png" />
     <Content Include="Distribution\GameData\ShipManifest\Textures\IconS_On_24.png" />
     <Content Include="Distribution\GameData\ShipManifest\Textures\IconS_On_38.png" />
+    <Content Include="LocalDev\7za_dir.txt" />
+    <Content Include="LocalDev\dist_dir.txt" />
+    <Content Include="LocalDev\ksp_dir.txt" />
+    <Content Include="LocalDev\mono_exe.txt" />
+    <Content Include="LocalDev\pdb2mdb_exe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Distribution\GameData\ShipManifest\Plugins\PluginData\SMSettings.dat" />
     <None Include="Distribution\GameData\ShipManifest\ShipManifest.version" />
     <None Include="Distribution\GameData\ShipManifest\Sounds\14214-1.ogg" />
     <None Include="Distribution\GameData\ShipManifest\Sounds\14214-2.ogg" />
@@ -139,15 +162,41 @@
     <None Include="Distribution\GameData\ShipManifest\Sounds\59328-3.ogg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SMInterface\SMInterface.csproj">
-      <Project>{fe8e6894-3a15-472c-b229-e0be7a827ca1}</Project>
-      <Name>SMInterface</Name>
-    </ProjectReference>
+    <Folder Include="Distribution\GameData\ShipManifest\Plugins\PluginData\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetPath)" "E:\KSP\ksp-win-1-0-4\KSP_win\GameData\ShipManifest\Plugins\"
-copy /Y "$(TargetPath)" "E:\KSP\Mods\PJS\Git\Source\ShipManifest\ShipManifest\Distribution\GameData\ShipManifest\Plugins\"</PostBuildEvent>
+    <PostBuildEvent>@echo $(Targetname)
+@echo ...
+@echo set lpath vars from LocalDev storage...
+set /p KSP_DIR=&lt;"$(ProjectDir)LocalDev\ksp_dir.txt"
+set /p PDB2MDB_EXE=&lt;"$(ProjectDir)LocalDev\pdb2mdb_exe.txt"
+set /p ZA_DIR=&lt;"$(ProjectDir)LocalDev\7za_dir.txt"
+set /p DIST_DIR=&lt;"$(ProjectDir)LocalDev\dist_dir.txt"
+
+@echo distributing $(Targetname) files...
+copy /Y "$(TargetPath)" "$(ProjectDir)Distribution\GameData\$(Targetname)\Plugins\"
+copy /Y "$(TargetDir)CLSInterfaces.dll" "$(ProjectDir)Distribution\GameData\$(Targetname)\Plugins\"
+
+@echo building $(Targetname).dll.mdb file...
+cd "$(TargetDir)"
+call "%25PDB2MDB_EXE%25" $(Targetname).dll
+
+copy /Y "$(TargetDir)$(Targetname).dll.mdb" "%25KSP_DIR%25\GameData\$(Targetname)\Plugins\"
+
+@echo packaging files...
+if exist "E:\KSP\Mods\PJS\Releases\$(Targetname)\Build\$(Targetname)*.zip" del "E:\KSP\Mods\PJS\Releases\$(Targetname)\Build\$(Targetname)*.zip"
+call "%25ZA_DIR%25\7za.exe" a -tzip -r  "%25DIST_DIR%25\$(Targetname).@(VersionNumber)_%25DATE:~4,2%25%25DATE:~7,2%25%25DATE:~10,4%25.zip" "$(ProjectDir)Distribution\*.*"
+
+@echo Deploy $(Targetname) Distribution files to test env:  %25KSP_DIR%25\GameData...
+xcopy /E /Y "$(SolutionDir)$(ProjectName)\Distribution\GameData" "%25KSP_DIR%25\GameData"
+copy /Y "$(TargetDir)$(Targetname).pdb" "%25KSP_DIR%25\GameData\$(Targetname)\Plugins\"
+
+@echo Build/deploy complete!</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -156,4 +205,18 @@ copy /Y "$(TargetPath)" "E:\KSP\Mods\PJS\Git\Source\ShipManifest\ShipManifest\Di
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="PostBuildMacros">
+    <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
+      <Output TaskParameter="Assemblies" ItemName="Targets" />
+    </GetAssemblyIdentity>
+    <ItemGroup>
+      <VersionNumber Include="@(Targets->'%(Version)')" />
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEventDependsOn>
+    $(PostBuildEventDependsOn);
+    PostBuildMacros;
+  </PostBuildEventDependsOn>
+  </PropertyGroup>
 </Project>
